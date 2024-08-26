@@ -1,0 +1,1 @@
+document.write("Bow before the might of the infinite black sphere!");
