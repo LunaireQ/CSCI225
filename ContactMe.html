@@ -1,61 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Contact Information</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    
-        <link rel="stylesheet" href="css/main.css">
-    </head>
-    <body>
-        <center>
-        <h1>Web Document: Contact Information for Cameron Coker</h1>
-        <p>Below will be an embeded video section<br></p>
-        <iframe width="854" height="480" src="https://www.youtube.com/embed/kH3y3YfIC6o" title="The Art of Worldbuilding - What Makes a Good Fake Game?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <p>Courtsy of Mothers Basement<br></p>
-        <h2>Feedback</h2>
-        <form action="feedback">
-           
-            <p>First Name</p>
-            <input type="FirstName" name="fname" placeholder="Anonymous" required><br>
-         
-            <p>Last Name</p>
-            <input type="LastName" name="lname" placeholder="Anonymous" required><br>
-           
-            <p>Email</p>
-            <input type="email" name="email" placeholder="name@domain.edu">
-           
-            <p>Would you recommend coming here?</p>
-            <input type="radio" name="button" value="Yes">Yes
-            <input type="radio" name="button" value="No">No<br>
-           
-            <p>What is your favorite Website?</p>
-            <input type="checkbox" name="website" value="Youtube">Youtube
-            <input type="checkbox" name="website" value="Facebook">Facebook
-            <input type="checkbox" name="website" value="Twitter">Twitter
-            <input type="checkbox" name="website" value="Instagram">Instagram
-            <input type="checkbox" name="website" value="TikTok">TikTok
-            <input type="checkbox" name="website" value="Spotify">Spotify
-            
-            <p>What would you rate this Web Document?</p>
-            <input type ="range" name="rating" min="1" max="10">
-           
-            <p>Comments</p>
-            <textarea name="comment" rows="6" cols="50" placeholder="Suggestions"></textarea><br>
-          
-            <label for="color">Select your favorite color:</label>
-            <input type="color" id="color" name="color"><br>
-           
-            <label for="date">Select a date:</label>
-            <input type="date" id="date" name="date"><br>
-           
-            <label for="time">Select a time:</label>
-            <input type="time" id="time" name="time"><br>
-           
-            <input type="submit" value="Submit">
-        </form>
-    </center>
-    </body>
+
+<head>
+    <title>Contact Information</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <div class="container">
+        <div class="row">
+            <div class="navbar navbar-expand-lg navbar-light bg-info">
+
+                <ul class="navbar-nav">
+                    <li class="nav-item"> <a class="nav-link text-light" href="https://usca.edu">USCA Webpage<br></a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link text-light" href="#assignments">Assignments<br></a> </li>
+                    <li class="nav-item"> <a class="nav-link text-light" href="ContactMe.html">Contact Info<br></a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link text-light" href="https://youtube.com">Youtube<br></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <h1 class="d-none">Web Document: Contact Information for Cameron Coker</h1>
+
+        <div class="row">
+            <div class="col">
+                <p>Below will be an embeded video section<br></p>
+                <iframe class="mt-5 border round-5" width="854" height="480"
+                    src="https://www.youtube.com/embed/kH3y3YfIC6o"
+                    title="The Art of Worldbuilding - What Makes a Good Fake Game?" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p>Courtsy of Mothers Basement<br></p>
+            </div>
+            <div class="col">
+                <h2>Feedback</h2>
+                <form name="feedback" class="mt-3" action="submit-feedback.php" method="POST">
+                    <div class="form-floating mb-2">
+                        <input class="form-control" type="text" id="fname" name="fname" placeholder="Anonymous" required><br>
+                        <label for="form-label">First Name</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input class="form-control" type="text" id="lname" name="lname" placeholder="Anonymous" required><br>
+                        <label for="form-label">Last Name</label>
+                    </div>
+                    
+                    <div class= "form-floating mb-2">
+                        <input class="form-control" type="email" id="email" name="email" placeholder="name.domain@edu">
+                        <label for="form-label">Email</label>
+                    </div>
+
+                    <p>Would you recommend coming here?</p>
+                    <div class="form-check">   
+                        <input class="form-check-input" type="radio" name="button" value="Yes">
+                        <label class="form-check-label" for="Yes">Yes</label><br>
+                        <input class="form-check-input" type="radio" name="button" value="No">
+                        <label class="form-check-label" for="No">No</label><br>
+                    </div>
+                    <br>
+
+                    <label class="form label" for="favwebsite">What is your favorite Website?</label>
+                    <select id="favwebsite" name="favwebsite">
+                        <option value="Youtube">Youtube</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Twitter">Twitter</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="TikTok">TikTok</option>
+                        <option value="Spotify">Spotify</option>
+                    </select>
+
+                    <p>What would you rate this Web Document?</p>
+                    <input type="range" name="rating" min="1" max="10">
+
+                    <p>Comments</p>
+                    <textarea name="comment" rows="6" cols="50" placeholder="Suggestions"></textarea><br>
+
+                    <label for="color">Select your favorite color:</label>
+                    <input type="color" id="color" name="color"><br>
+
+                    <label for="date">Select a date:</label>
+                    <input type="date" id="date" name="date"><br>
+
+                    <label for="time">Select a time:</label>
+                    <input type="time" id="time" name="time"><br>
+
+                    <input type="submit" value="Submit">
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
