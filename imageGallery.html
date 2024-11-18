@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        * { box-sizing: border-box; margin: 0;}
+        body { font-family: Arial, sans-serif; }
+        body { background-image: url('img/RazerChroma_1920x1080.png'); }
+        .gallery-container { position: relative; max-width: 1600px; margin: auto; }
+        .gallery-image { display: none; width: 100%; }
+        .active { display: block; }
+        .nav { position: absolute; top: 50%; width: auto; padding: 16px; color: white; font-weight: bold; font-size: 24px; cursor: pointer; user-select: none; }
+        .nav-left { left: 0; transform: translateY(-50%); }
+        .nav-right { right: 0; transform: translateY(-50%); }
+        .nav:hover { background-color: rgba(0, 0, 0, 0.8); }
+        .dots-container { text-align: center; padding: 10px; }
+        .dot { cursor: pointer; height: 15px; width: 15px; margin: 0 2px; background-color: #bbb; border-radius: 50%; display: inline-block; transition: background-color 0.6s ease; }
+        .active-dot { background-color: #717171; }
+        #image-alt-text { 
+            color: white; 
+            text-align: center; 
+            padding: 10px; 
+            border: 2px solid black; 
+            margin: 10px auto; 
+            max-width: 80%; 
+            background-color: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            bottom: 23%; 
+            left: 50%; 
+            transform: translateX(-50%); 
+        }
+    </style>
+</head>
+<body>
+
+<div class="gallery-container">
+    <img class="gallery-image active" src="img/JA37.jpg" alt="Rendering of a Swedish Saab JA 37 Viggen, a Swedish multirole Combat aircraft. From the game War Thunder.">
+    <img class="gallery-image" src="img/JAS39A.jpg" alt="Rendering of a Swedish Saab JAS 39 Gripen, a Swedish Multirole Jet Fighter. From the game War Thunder.">
+    <img class="gallery-image" src="img/STRF90C.jpg" alt="Rendering of a Swedish Stridsfordon 90C, a tracked armored combat vehicle currently in service with the Swedish Army. From the game War Thunder. ">
+    <img class="gallery-image" src="img/STRV103C.jpg" alt="Rendering of a Swedish Str idsvagn 103C or 'S-tank'. This was the main battle tank for the Swedish army up until the '90s. From the game War Thunder." >
+    <img class="gallery-image" src="img/DrakenLoop.gif" alt="Rendering of a Swedish Saab JA 35 Draken, a Swedish Jet Fighter / Interceptor. From the game War Thunder.">
+
+    <a class="nav nav-left" onclick="changeImage(-1)">&#10094;</a>
+    <a class="nav nav-right" onclick="changeImage(1)">&#10095;</a>
+</div>
+
+<div class="dots-container">
+    <span class="dot active-dot" onclick="currentImage(1)"></span>
+    <span class="dot" onclick="currentImage(2)"></span>
+    <span class="dot" onclick="currentImage(3)"></span>
+    <span class="dot" onclick="currentImage(4)"></span>
+    <span class="dot" onclick="currentImage(5)"></span>
+</div>
+
+<div id="image-alt-text"></div>
+
+<script>
+    let currentIndex = 1;
+    showImage(currentIndex);
+
+    function changeImage(n) {
+        showImage(currentIndex += n);
+    }
+
+    function currentImage(n) {
+        showImage(currentIndex = n);
+    }
+
+    function showImage(n) {
+        let i;
+        let images = document.getElementsByClassName("gallery-image");
+        let dots = document.getElementsByClassName("dot");
+        if (n > images.length) { currentIndex = 1 }
+        if (n < 1) { currentIndex = images.length }
+        for (i = 0; i < images.length; i++) {
+            images[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active-dot", "");
+        }
+        images[currentIndex - 1].style.display = "block";
+        dots[currentIndex - 1].className += " active-dot";
+        document.getElementById("image-alt-text").textContent = images[currentIndex - 1].alt;
+    }
+</script>
+
+</body>
+</html>
